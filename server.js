@@ -11,6 +11,10 @@ app.use(
   express.urlencoded({ extended: true }),
   express.json({ extended: true })
 );
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 app.use("/agents", agentRoutes);
 app.use("/propertys", propertyRoutes);
 
