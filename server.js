@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import agentRoutes from "./modules/agents/agentRoutes.js";
 import propertyRoutes from "./modules/propertys/propertyRoutes.js";
+import contactRoutes from "./modules/contact/contactRoutes.js";
 const app = express();
 
 app.use(
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 });
 app.use("/agents", agentRoutes);
 app.use("/propertys", propertyRoutes);
+app.use("/email", contactRoutes);
 
 dotenv.config();
 
