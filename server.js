@@ -11,8 +11,7 @@ const app = express();
 app.use(
   cors(),
   express.urlencoded({ extended: true }),
-  express.json({ extended: true }),
-  express.limit(100000)
+  express.json({ extended: true })
 );
 
 app.get("/", (req, res) => {
