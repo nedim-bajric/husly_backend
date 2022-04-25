@@ -5,12 +5,14 @@ import dotenv from "dotenv";
 import agentRoutes from "./modules/agents/agentRoutes.js";
 import propertyRoutes from "./modules/propertys/propertyRoutes.js";
 import contactRoutes from "./modules/contact/contactRoutes.js";
+import adminRoutes from "./modules/admin/adminRoutes.js";
 const app = express();
 
 app.use(
   cors(),
   express.urlencoded({ extended: true }),
-  express.json({ extended: true })
+  express.json({ extended: true }),
+  express.limit(100000)
 );
 
 app.get("/", (req, res) => {
@@ -19,7 +21,7 @@ app.get("/", (req, res) => {
 app.use("/agents", agentRoutes);
 app.use("/propertys", propertyRoutes);
 app.use("/email", contactRoutes);
-
+app.use("/admin", adminRoutes);
 dotenv.config();
 
 app.use((error, req, res, next) => {
